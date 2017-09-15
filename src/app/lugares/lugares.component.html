@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col s12 m5">
+    <h3 style="margin-top: 0;"><strong>Lugares</strong></h3>
+  <!-- Lista de lugares -->
+    <div class="lugarlist"> 
+      <ul>
+        <mz-collapsible  
+        mvatContarClick
+        [onClose]="closeFunctionCallback"
+        [onOpen]="openFunctionCallback"
+        [popout]="true">
+        <mz-collapsible-item *ngFor="let lugar of lugares" >
+          <mz-collapsible-item-header  [mvatMarcar]="lugar.Pago">
+            {{lugar.Empresa}}
+          </mz-collapsible-item-header>
+          <mz-collapsible-item-body style="color: whitesmoke">
+            {{lugar.descripB}}
+          </mz-collapsible-item-body>
+        </mz-collapsible-item>
+      </mz-collapsible>
+      </ul>
+    </div>
+
+  </div>
+  <!-- Mapa -->
+  <div class="col s12 m5">
+    <h4 style="margin-top: 8px; margin-bottom: 0px;"><strong>Donde se encuentra ↓</strong></h4>
+    <br>
+    <agm-map 
+    [latitude]="lat" 
+    [longitude]="lng" 
+    [backgroundColor]="'#4c944f'" 
+    [zoom]="16" 
+    [mapTypeId]="'hybrid'" 
+    [fullscreenControl]="true" 
+    [mapTypeControl]="true" >
+      <agm-marker #lug
+      [latitude]="lat" 
+      [longitude]="lng"
+      [title]="'Name'"
+      [iconUrl]="'/assets/images/ic_account_circle_black_24dp_2x.png'"
+      (markerClick)="cuadrado(lug)">
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>

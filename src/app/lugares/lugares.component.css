@@ -1,0 +1,14 @@
+agm-map {
+  height: 426px;
+  width: 100%;
+}
+.caja {
+  background-color: blue;
+  height: 500px;
+}
+.lugarlist {
+  height: 385px;
+  background-color: #424242;
+  overflow-y: auto;
+  white-space: nowrap;
+}
